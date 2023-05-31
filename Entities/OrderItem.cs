@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,17 @@ namespace Udemy.CSharp.Aula132.Exercicio01.Entities
         public double subTotal()
         {
             return Quantity * Price;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(", Quantity: ");
+            sb.Append(Quantity);
+            sb.Append(", Subtotal: $");
+            sb.Append(subTotal().ToString("F2", CultureInfo.InvariantCulture));
+
+            return sb.ToString();
         }
 
     }
