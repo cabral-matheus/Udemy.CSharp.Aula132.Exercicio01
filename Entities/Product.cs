@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,14 @@ namespace Udemy.CSharp.Aula132.Exercicio01.Entities
         {
             Name = name;
             Price = price;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(Name);
+            sb.Append(", $");
+            sb.Append(Price.ToString("F2", CultureInfo.InvariantCulture));
         }
 
     }
