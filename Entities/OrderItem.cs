@@ -13,7 +13,10 @@ namespace Udemy.CSharp.Aula132.Exercicio01.Entities
         public double Price { get; set; }
         public Product Product { get; set; }
 
-        public OrderItem() { }
+        public OrderItem()
+        {
+
+        }
 
         public OrderItem(int quantity, double price, Product product)
         {
