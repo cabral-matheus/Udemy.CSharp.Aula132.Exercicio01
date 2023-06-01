@@ -34,6 +34,9 @@ namespace Udemy.CSharp.Aula132.Exercicio01.Entities
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
+            sb.Append(Product.Name);
+            sb.Append(", $");
+            sb.Append(Price.ToString("F2", CultureInfo.InvariantCulture));
             sb.Append(", Quantity: ");
             sb.Append(Quantity);
             sb.Append(", Subtotal: $");
