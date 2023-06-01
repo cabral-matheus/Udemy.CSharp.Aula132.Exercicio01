@@ -30,6 +30,8 @@ namespace Udemy.CSharp.Aula132.Exercicio01.Entities
             sb.Append(Name);
             sb.Append(", $");
             sb.Append(Price.ToString("F2", CultureInfo.InvariantCulture));
+
+            return sb.ToString();
         }
 
     }
