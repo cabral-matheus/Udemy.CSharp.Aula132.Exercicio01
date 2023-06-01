@@ -49,23 +49,26 @@ namespace Udemy.CSharp.Aula132.Exercicio01.Entities
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
+            sb.AppendLine("");
             sb.AppendLine("ORDER SUMMARY:");
-            sb.AppendLine("Order moment: ");
-            sb.Append(Moment.ToString("dd/MM/yyyy HH:mm:ss"));
-            sb.AppendLine("Order status: ");
-            sb.Append(Status.ToString());
-            sb.AppendLine("Client: ");
+            sb.Append("Order moment: ");
+            sb.AppendLine(Moment.ToString("dd/MM/yyyy HH:mm:ss"));
+            sb.Append("Order status: ");
+            sb.AppendLine(Status.ToString());
+            sb.Append("Client: ");
             sb.Append(Client.Name);
-            sb.Append(" - ");
-            sb.Append(Client.Email);
+            sb.Append(" (");
+            sb.Append(Client.BirthDate.ToString("dd/MM/yyyy"));
+            sb.Append(") - ");
+            sb.AppendLine(Client.Email);
             sb.AppendLine("Order items:");
 
             foreach (OrderItem item in Items)
             {
                 sb.AppendLine(item.ToString());
             }
-            sb.AppendLine("Total price: $");
-            sb.Append(Total().ToString("F2", CultureInfo.InvariantCulture));
+            sb.Append("Total price: $");
+            sb.AppendLine(Total().ToString("F2", CultureInfo.InvariantCulture));
 
             return sb.ToString();
 
