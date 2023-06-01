@@ -20,15 +20,15 @@ namespace Udemy.CSharp.Aula132.Exercicio01
 
             Console.WriteLine("Enter order data:");
             Console.Write("Status: ");
-            string status = Console.ReadLine();
+            OrderStatus status = Enum.Parse<OrderStatus>(Console.ReadLine());
             Console.Write("How many items to this order? ");
             int n = int.Parse(Console.ReadLine());
 
-            Order order = null;
+            Order order = new Order(DateTime.Now, status, client);
 
             for (int i = 1; i <= n; i++)
             {
-                Console.Write($"Enter #{i} item data:");
+                Console.WriteLine($"Enter #{i} item data:");
                 Console.Write("Product name: ");
                 string productName = Console.ReadLine();
                 Console.Write("Product price: ");
@@ -38,11 +38,10 @@ namespace Udemy.CSharp.Aula132.Exercicio01
 
                 Product product = new Product(productName, price);
                 OrderItem item = new OrderItem(quantity, price, product);
-                order = new Order(DateTime.Now, Enum.Parse<OrderStatus>(status), client);
+                order.AddItem(item); 
             }
 
-
-
+            Console.WriteLine(order);
 
         }
     }
